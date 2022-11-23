@@ -100,7 +100,7 @@
                 android:paddingBottom="50dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/explanation"
-                tools:text="@{`© ` + image.copyright}" />
+                tools:text="@{image.copyright != null ? `© ` + image.copyright : ``}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

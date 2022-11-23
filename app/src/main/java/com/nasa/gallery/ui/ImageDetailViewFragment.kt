@@ -32,7 +32,8 @@ class ImageDetailViewFragment : Fragment() {
 
     private fun init() {
         viewModel = ViewModelProvider(requireActivity())[ImageViewModel::class.java]
-        detailsItemAdapter = DetailsItemAdapter(viewModel.result.value!!.data!!)
+        val images = viewModel.result.value!!.data!!
+        detailsItemAdapter = DetailsItemAdapter(images.sortedByDescending { item -> item.date })
         _binding!!.pager.apply {
 
             adapter = detailsItemAdapter

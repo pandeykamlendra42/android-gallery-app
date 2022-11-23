@@ -15,6 +15,8 @@ import com.nasa.gallery.data.resource.Resource
 import com.nasa.gallery.data.viewModel.ImageViewModel
 import com.nasa.gallery.databinding.FragmentGalleryGridViewBinding
 import com.nasa.gallery.ui.adaptor.ImageAdapter
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 
 class GalleryGridViewFragment : Fragment() {
@@ -34,12 +36,12 @@ class GalleryGridViewFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.result.observe(requireActivity()) {
+        viewModel.result.observe(requireActivity()) { it ->
             when (it.status) {
                 Resource.Status.SUCCESS -> {
                     it.data?.let { images ->
                         imagesList.clear()
-                        imagesList.addAll(images)
+                        imagesList.addAll(images.sortedByDescending { item -> item.date })
                         adapter.notifyDataSetChanged()
                     }
                     _binding!!.progressBar.visibility = View.GONE
