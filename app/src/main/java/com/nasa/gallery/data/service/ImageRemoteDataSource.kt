@@ -3,7 +3,7 @@ package com.nasa.gallery.data.service
 import com.nasa.gallery.data.resource.BaseDataSource
 import javax.inject.Inject
 
-class ImageRemoteDataSource @Inject constructor(
+open class ImageRemoteDataSource @Inject constructor(
     private val imageService: ImageService
 ) : BaseDataSource() {
 

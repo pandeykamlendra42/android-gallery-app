@@ -41,7 +41,7 @@ class GalleryGridViewFragment : Fragment() {
                 Resource.Status.SUCCESS -> {
                     it.data?.let { images ->
                         imagesList.clear()
-                        imagesList.addAll(images.sortedByDescending { item -> item.date })
+                        imagesList.addAll(viewModel.sortedList(images))
                         adapter.notifyDataSetChanged()
                     }
                     _binding!!.progressBar.visibility = View.GONE
