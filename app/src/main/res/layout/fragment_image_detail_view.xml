@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#F2F2F2"
+    android:background="@color/dim_white"
     android:padding="0dp">
 
     <androidx.viewpager2.widget.ViewPager2
